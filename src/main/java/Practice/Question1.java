@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class Question1 {
 
 	public static void main(String[] args) throws SQLException{
-//		create();
-//		read();
-		insertrt1();
+		create();
+//		insertrt1();
+		insertrt2();
+		read();
 	}
 	
 	public static void create() throws SQLException{
@@ -53,14 +54,47 @@ public class Question1 {
 			scan.nextLine();
 			
 			String val2 = scan.nextLine();
-			scan.nextLine();
+			
 			
 			String val3 = scan.nextLine();
-			scan.nextLine();
 			
 			String q = "insert into task values("+val1+",'"+val2+"','"+val3+"');";
 			s.executeUpdate(q);
+			
 		}
+
+	}
+	
+	
+	
+	public static void insertrt2() throws SQLException{
+		Scanner scan = new Scanner(System.in);
+		String url = "jdbc:mysql://localhost:3306/placement_training";
+		String un = "root";
+		String pw = "7547";
+		Connection c = DriverManager.getConnection(url, un, pw);
+		Statement s = c.createStatement();
+		
+		System.out.print("Enter the Number of values to be insert : ");
+		int n = scan.nextInt();
+		
+		for(int k = 1;k<=n;k++) {
+			
+			int val1 = scan.nextInt();
+			scan.nextLine();
+			
+			String val2 = scan.nextLine();
+			
+			
+			String val3 = scan.nextLine();
+			
+			String q = "insert into task values("+val1+",'"+val2+"','"+val3+"');";
+			s.executeUpdate(q);
+			
+		}
+
 	}
 
 }
+
+
